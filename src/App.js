@@ -3,10 +3,10 @@ import './App.css';
 import { useState } from 'react';
 import Buttons from './components/Buttons';
 function App() {
-  const [display, setDisplay] = useState(399.99);
-  const [value, setValue] = useState("")
+  const [display, setDisplay] = useState(0);
+  const [myvalue, setValue] = useState("0")
   //const values = ["RESET", "/", "*", 7, 8, 9, "-", 4, 5, 6, "+", 1, 2, 3, "=", 0, "."];
-  const values = [7, 8, 9, "DEL", 4, 5, 6, "+", 1, 2, 3, "-", ".", 0, "/", "x", "RESET", "="];
+  const values = [7, 8, 9, "DEL", 4, 5, 6, "+", 1, 2, 3, "-", ".", 0, "/", "*", "RESET", "="];
   //const ids = ["clear", "divide", "multiply", "seven", "eight", "nine", "subtract", "four", "five", "six", "add", "one", "two", "three", "equals", "zero", "decimal"];
   const ids = ["seven", "eight", "nine", "delete", "four", "five", "six", "add", "one", "two", "three", "subtract", "decimal", "zero", "divide", "multiply", "clear", "equals"]
   let data = [];
@@ -19,7 +19,7 @@ function App() {
   }
   /// console.log(data)
   const content = data.map((it) => {
-    return <Buttons key={it.id} value={it.value} id={it.id} setDisplay={setDisplay} setValue={setValue} thisValue={value} />
+    return <Buttons key={it.id} value={it.value} id={it.id} setDisplay={setDisplay} setValue={setValue} thisValue={myvalue} />
   })
   return (
     <div className="App  flex w-screen h-screen">
@@ -41,7 +41,7 @@ function App() {
             </div>
           </div></div>
         <div className='output my-6  pt-4 pb-6 px-6 w-full rounded-lg bg-my ' >
-          <p className='text-end text-whites'>{value}</p>
+          <p className='text-end text-whites'>{myvalue}</p>
           <p className='text-4xl text-end font-bold text-white' id="display">{parseFloat(display)}</p>
         </div>
 
